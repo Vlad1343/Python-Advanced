@@ -1,6 +1,6 @@
 
-# import smtplib
-# import getpass
+# import smtplib    #Library for sending emails using SMTP
+# import getpass    #Library for securely handling password prompts.
 
 # sender_email = input("Enter your email address: ")
 # password = getpass.getpass("Enter your password: ")   #App Password
@@ -17,8 +17,8 @@
 
 
 
-# import imapclient
-# import pyzmail
+# import imapclient  #Library that makes working with IMAP easier(reading emails).
+# import pyzmail     #Library for parsing email messages.
 
 # imapObj = imapclient.IMAPClient('imap.gmail.com', ssl=True)
 # imapObj.login('my_email_address@gmail.com', 'MY_SECRET_PASSWORD')
