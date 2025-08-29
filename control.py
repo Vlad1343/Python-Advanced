@@ -1,7 +1,7 @@
 
-import pyautogui # Library to control mouse and keyboard
+# import pyautogui # Library to control mouse and keyboard
 # pyautogui.PAUSE = 1 # Pause after each PyAutoGUI call
-pyautogui.FAILSAFE = True # Move mouse to top-left to abort script
+# pyautogui.FAILSAFE = True # Move mouse to top-left to abort script
 
 # print(pyautogui.size()) # Get screen size
 # print(pyautogui.position()) # Get current mouse position
@@ -22,13 +22,26 @@ pyautogui.FAILSAFE = True # Move mouse to top-left to abort script
 
 
 
-"""Where is the mouse right now?"""
 # import pyautogui
-import time
+# import time
+# try:
+#     while True:
+#         time.sleep(1)
+#         print(pyautogui.position())
+
+# except KeyboardInterrupt:
+#     print('\nDone.')
+
+
+
+"""Where is the mouse right now?"""
+import pyautogui
 try:
     while True:
-        time.sleep(1)
-        print(pyautogui.position())
+        x, y = pyautogui.position()
+        positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
+        print(positionStr, end='')
+        print('\b' * len(positionStr), end='', flush=True)
 
 except KeyboardInterrupt:
     print('\nDone.')
