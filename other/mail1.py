@@ -38,7 +38,17 @@
 # message.html_part.get_payload().decode(message.html_part.charset)
 # imapObj.logout()
 
+# You can only get ID's
+# imapObj.search(['ON 05-Jul-2015'])
+# imapObj.search(['SINCE 01-Jan-2015', 'BEFORE 01-Feb-2015', 'UNSEEN'])
+# imapObj.search(['SINCE 01-Jan-2015', 'FROM alice@example.com'])
+# imapObj.search(['SINCE 01-Jan-2015', 'NOT FROM alice@example.com'])
 
+
+# Get actual content
+# import pprint
+# rawMessages = imapObj.fetch(UIDs, ['BODY[]']) 
+# pprint.pprint(rawMessages)
 
 
 
