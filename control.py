@@ -34,24 +34,25 @@
 
 
 
-"""Where is the mouse right now? + RGB"""
-import pyautogui
-try:
-    while True:
-        x, y = pyautogui.position()
-        try:
-            pixelColor = pyautogui.screenshot().getpixel((x, y))
-            positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
-            positionStr += ' RGB: (' + str(pixelColor[0]).rjust(3)
-            positionStr += ', ' + str(pixelColor[1]).rjust(3)
-            positionStr += ', ' + str(pixelColor[2]).rjust(3) + ')'
-        except OSError:
-            positionStr = f'X: {x} Y: {y} RGB: (---, ---, ---)'
+# """Where is the mouse right now? + RGB"""
+# import pyautogui
+# try:
+#     while True:
+#         x, y = pyautogui.position()
+#         try:
+#             pixelColor = pyautogui.screenshot().getpixel((x, y))
+#             positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
+#             positionStr += ' RGB: (' + str(pixelColor[0]).rjust(3)
+#             positionStr += ', ' + str(pixelColor[1]).rjust(3)
+#             positionStr += ', ' + str(pixelColor[2]).rjust(3) + ')'
+#         except OSError:
+#             positionStr = f'X: {x} Y: {y} RGB: (---, ---, ---)'
 
-        print(positionStr, end='\r', flush=True)
+#         print(positionStr, end='\r', flush=True)
 
-except KeyboardInterrupt:
-    print('\nDone.')
+# except KeyboardInterrupt:
+#     print('\nDone.')
+
 
 
 
@@ -124,3 +125,23 @@ except KeyboardInterrupt:
 # im.getpixel((50, 200))
 # pyautogui.pixelMatchesColor(50, 200, (130, 135, 144))
 # pyautogui.pixelMatchesColor(50, 200, (255, 135, 144))
+
+
+# import pyautogui
+# print(list(pyautogui.locateAllOnScreen('photo.png'))) # Locate an image on the screen
+
+
+# import pyautogui
+# pyautogui.click(320, 455)
+# pyautogui.typewrite("print('Hello world!')", interval=0.07) # Type smth automatically
+
+# import pyautogui
+# pyautogui.click(180, 145, interval=0.25)
+# pyautogui.typewrite('hello.txt', interval=0.07)
+# pyautogui.press("enter")
+# pyautogui.typewrite('Robots will conquer the world', interval=0.03)
+
+
+
+# import pyautogui
+# pyautogui.keyDown('shift'); pyautogui.press('4'); pyautogui.keyUp('shift') # Press $ symbol
