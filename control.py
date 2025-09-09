@@ -145,3 +145,78 @@
 
 # import pyautogui
 # pyautogui.keyDown('shift'); pyautogui.press('4'); pyautogui.keyUp('shift') # Press $ symbol
+# pyautogui.hotkey('ctrl', 'c') # Hotkey Ctrl+C to copy
+
+
+
+
+
+# https://docs.google.com/forms/d/e/1FAIpQLScSVDFU76rZvbO_tiIwSt6d9sOK0CZyS9KKMCP6cP5O5W5lVQ/viewform
+"""Fill out a form automatically"""
+import pyautogui, time
+
+pyautogui.PAUSE = 0.5 # Pause after each PyAutoGUI call
+pyautogui.FAILSAFE = True # Move mouse to top-left to abort script
+nameField = (497, 451)
+submitButton = (474, 634)
+submitButtonColor = (240, 240)
+submitAnotherLink = (533, 247)
+
+formData = [
+    {'name': 'Alice', 'fear': 'eavesdroppers', 'source': 'wand',
+     'robocop': 4, 'comments': 'Tell Bob I said hi.'},
+
+    {'name': 'Bob', 'fear': 'bees', 'source': 'amulet', 'robocop': 4,
+     'comments': 'n/a'},
+
+    {'name': 'Carol', 'fear': 'puppets', 'source': 'crystal ball',
+     'robocop': 1, 'comments': 'Please take the puppets out of the break room.'},
+
+    {'name': 'Alex Murphy', 'fear': 'ED-209', 'source': 'money',
+     'robocop': 5, 'comments': 'Protect the innocent. Serve the public trust. Uphold the law.'},
+]
+ 
+time.sleep(5) # Time to switch to the form window
+
+
+for person in formData:
+    # Give the user a chance to kill the script.
+    print('>>> 5 SECONDS TO CANCEL <<<')
+    time.sleep(5)
+
+    # Wait until the form page has loaded.
+    while not pyautogui.pixelMatchesColor(submitButton[0], submitButton[1], submitButtonColor):
+        time.sleep(0.5)
+
+print('Entering %s info...' % (person['name']))
+
+# Click the Name field.
+pyautogui.click(nameField[0], nameField[1])
+
+# Fill out the Name field.
+pyautogui.typewrite(person['name'] + '\t')
+
+# Fill out the Greatest Fear(s) field.
+pyautogui.typewrite(person['fear'] + '\t')
+
+# Fill out the Source of Wizard Powers field.
+if person['source'] == 'wand':
+    pyautogui.typewrite(['down', '\t'])
+elif person['source'] == 'amulet':
+    pyautogui.typewrite(['down', 'down', '\t'])
+elif person['source'] == 'crystal ball':
+    pyautogui.typewrite(['down', 'down', 'down', '\t'])
+elif person['source'] == 'money':
+    pyautogui.typewrite(['down', 'down', 'down', 'down', '\t'])
+
+# Fill out the RoboCop field.
+if person['robocop'] == 1:
+    pyautogui.typewrite([' ', '\t'])
+elif person['robocop'] == 2:
+    pyautogui.typewrite(['right', '\t'])
+elif person['robocop'] == 3:
+    pyautogui.typewrite(['right', 'right', '\t'])
+elif person['robocop'] == 4:
+    pyautogui.typewrite(['right', 'right', 'right', '\t'])
+elif person['robocop'] == 5:
+    pyautogui.typewrite(['right', 'right', 'right', 'right', '\t'])
