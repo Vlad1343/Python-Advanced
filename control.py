@@ -34,17 +34,24 @@
 
 
 
-"""Where is the mouse right now?"""
-# import pyautogui
-# try:
-#     while True:
-#         x, y = pyautogui.position()
-#         positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
-#         print(positionStr, end='')
-#         print('\b' * len(positionStr), end='', flush=True)
+"""Where is the mouse right now? + RGB"""
+import pyautogui
+try:
+    while True:
+        x, y = pyautogui.position()
+        try:
+            pixelColor = pyautogui.screenshot().getpixel((x, y))
+            positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
+            positionStr += ' RGB: (' + str(pixelColor[0]).rjust(3)
+            positionStr += ', ' + str(pixelColor[1]).rjust(3)
+            positionStr += ', ' + str(pixelColor[2]).rjust(3) + ')'
+        except OSError:
+            positionStr = f'X: {x} Y: {y} RGB: (---, ---, ---)'
 
-# except KeyboardInterrupt:
-#     print('\nDone.')
+        print(positionStr, end='\r', flush=True)
+
+except KeyboardInterrupt:
+    print('\nDone.')
 
 
 
@@ -100,10 +107,20 @@
 
 
 
-
 # import pyautogui
 # pyautogui.scroll(5) # Scroll up 5 "clicks"
 # pyautogui.scroll(-5) # Scroll down 5 "clicks"
 # pyautogui.hscroll(5) # Scroll right 5 "clicks"
 # pyautogui.hscroll(-5) # Scroll left 5 "clicks"
-# 447/423
+
+
+
+# import pyautogui
+# im = pyautogui.screenshot()
+# print(im.getpixel((0,0))) # Get the color of a pixel
+# print(im.getpixel((100,100)))
+
+# im = pyautogui.screenshot()
+# im.getpixel((50, 200))
+# pyautogui.pixelMatchesColor(50, 200, (130, 135, 144))
+# pyautogui.pixelMatchesColor(50, 200, (255, 135, 144))
