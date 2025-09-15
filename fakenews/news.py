@@ -2,6 +2,7 @@
 """
 Fake News Detection Model
 This script builds and trains a deep learning model to classify news articles as real or fake.
+Large csv and GloVe txt files weren't uploaded to GitHub due to size constraints
 """
 
 # Libraries: numpy, pandas, scikit learn and tenserflow
