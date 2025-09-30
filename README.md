@@ -45,14 +45,6 @@ This repository contains experiments and projects exploring advanced Python conc
 - Saves the trained model for reuse (`.h5` format).  
 - Provides tokenized sequences and prediction probability for transparency.  
 
-### GUI Automation Projects
-
-- Python automation bot for **Sushi Go Round**:  
-  - Detects customer orders in real time.  
-  - Manages ingredient inventory automatically.  
-  - Prepares sushi by interacting with the game interface.  
-  - Uses screen color checks, keyboard/mouse automation, and failsafe mechanisms to prevent errors.  
-
 ### Data Analysis Projects
 
 - **COVID-19 Global Analysis with Plotly:**  
