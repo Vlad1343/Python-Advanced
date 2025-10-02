@@ -42,7 +42,7 @@ This repository contains experiments and projects exploring advanced Python conc
   - **Dense + Sigmoid:** Outputs final classification probability (Fake or Real).  
 - Trains on a subset of the dataset and validates on a test set.  
 - Makes predictions on new articles by combining title and text, tokenizing, padding, and feeding to the trained model.  
-- Saves the trained model for reuse (`.h5` format).  
+- Saves the trained model for reuse.
 - Provides tokenized sequences and prediction probability for transparency.  
 
 ### Data Analysis Projects
