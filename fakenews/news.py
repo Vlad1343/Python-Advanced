@@ -1,4 +1,3 @@
-
 """
 Fake News Detection Model
 This script builds and trains a deep learning model to classify news articles as real or fake.
@@ -14,6 +13,8 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import pickle
+
 
 
 # Variables Setup
@@ -63,6 +64,11 @@ tokenizer1.fit_on_texts(combined_text)
 
 word_index1 = tokenizer1.word_index
 vocab_size1 = len(word_index1)
+
+# ADD THESE LINES TO SAVE THE TOKENIZER
+with open('fakenews/tokenizer.pkl', 'wb') as f:
+    pickle.dump(tokenizer1, f)
+print("Tokenizer saved successfully!")
 
 # Convert combined text to sequences and pad them
 sequences1 = tokenizer1.texts_to_sequences(combined_text)
